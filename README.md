@@ -37,4 +37,4 @@ Retrieves exported functions from a legitimate DLL and generates a proxy DLL sou
 
 ## Credits
 
-    [SharpDllProxy](https://github.com/Flangvik/SharpDllProxy)
+   [SharpDllProxy](https://github.com/Flangvik/SharpDllProxy)
