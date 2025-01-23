@@ -49,7 +49,7 @@ if len(sys.argv) != 2:
     print_usage()
     sys.exit(1)
 
-dll_path = sys.argv[1]
+dll_path = sys.argv[1].replace("\\","\\\\")
 
 
 print("Checking Rust installation...")
@@ -70,11 +70,10 @@ functions = extract_functions(dll_path)
 
 with open('Cargo.toml', 'a') as cargo_file:
     cargo_file.write(f"""
+winapi = {{ version = "0.3", features = ["processthreadsapi", "winbase", "winnt", "libloaderapi", "handleapi"] }}
+
 [lib]
 crate-type = ["cdylib"]
-
-[dependencies]
-winapi = {{ version = "0.3", features = ["processthreadsapi", "winbase", "winnt", "libloaderapi", "handleapi"] }}
 """)
 print("Updated Cargo.toml.")
 
